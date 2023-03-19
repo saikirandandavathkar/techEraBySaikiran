@@ -4,8 +4,6 @@ import {Link} from 'react-router-dom'
 
 import Loader from 'react-loader-spinner'
 
-import {Nel, Logo, FailCon, FailIm, Fh, Fp, Fb, ListCon} from './styleComponent'
-
 import Item from '../Item'
 
 import './index.css'
@@ -55,11 +53,11 @@ class CourseItem extends Component {
     return (
       <div className="s-con">
         <h1 className="header">Courses</h1>
-        <ListCon>
+        <ul className="ListCon">
           {courseList.map(i => (
             <Item details={i} key={i.id} />
           ))}
-        </ListCon>
+        </ul>
       </div>
     )
   }
@@ -67,24 +65,28 @@ class CourseItem extends Component {
   failView = () => (
     <div>
       <Link to="/" className="link-el">
-        <Nel>
-          <Logo
+        <div className="nel">
+          <img
+            className="Logo"
             src="https://assets.ccbp.in/frontend/react-js/tech-era/website-logo-img.png"
             alt="website logo"
           />
-        </Nel>
+        </div>
       </Link>
-      <FailCon>
-        <FailIm
+      <div className="FailCon">
+        <img
+          className="FailIm"
           src="https://assets.ccbp.in/frontend/react-js/tech-era/failure-img.png"
           alt="failure view"
         />
-        <Fh>Oops! Something Went wRONG</Fh>
-        <Fp>We cannot seem to find the page you are looking for</Fp>
-        <Fb type="button" onClick={this.getData}>
+        <h1 className="Fh">Oops! Something Went wRONG</h1>
+        <p className="Fp">
+          We cannot seem to find the page you are looking for
+        </p>
+        <button className="Fb" type="button" onClick={this.getData}>
           Retry
-        </Fb>
-      </FailCon>
+        </button>
+      </div>
     </div>
   )
 
@@ -106,12 +108,13 @@ class CourseItem extends Component {
     return (
       <div>
         <Link to="/" className="link-el">
-          <Nel>
-            <Logo
+          <nav className="nel">
+            <img
+              className="logo"
               src="https://assets.ccbp.in/frontend/react-js/tech-era/website-logo-img.png"
               alt="website logo"
             />
-          </Nel>
+          </nav>
         </Link>
         {this.finalRender()}
       </div>
